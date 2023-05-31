@@ -3,7 +3,7 @@ import { fileURLToPath } from 'url';
 import path from "path";
 
 const __filename = fileURLToPath(import.meta.url);
-
+ 
 const __dirname = path.dirname(__filename);
 
 const app = express();
@@ -13,7 +13,7 @@ app.use("/public", express.static(path.join(__dirname, "../esa-applicants-data/o
 app.get('/', (req, res) =>{
     res.send('Server is ready...');
 });
-
+ 
 let port = 3002;
 app.listen(port, () => {
     console.log(`Server at http://localhost:${port}`);
