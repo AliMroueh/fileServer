@@ -10,6 +10,14 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
+// may help in fixing the error
+// app.use(cors({
+//   origin: 'http://example.com' // Replace with the allowed origin(s)
+// }));
+
+// Enable CORS for the /public route
+// app.use('/public', cors());
+
 // const localDiskPath = path.parse(require('os').homedir()).root;
 const localDiskPath = path.parse(os.homedir()).root;
 // console.log(localDiskPath)
