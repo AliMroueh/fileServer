@@ -20,7 +20,7 @@ app.use(cors());
 
 // const localDiskPath = path.parse(require('os').homedir()).root;
 const localDiskPath = path.parse(os.homedir()).root;
-// console.log(localDiskPath)
+console.log(localDiskPath)
 const directory = path.join(
   localDiskPath,
   'esa-applicants-data',
@@ -36,6 +36,8 @@ const directory1 = path.join(
 // console.log(path.join(__dirname, localDiskPath,
 //     'esa-applicants-data',
 //     'onlineUsers',))
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(directory));
 
 app.use("/setting", express.static(directory1));
