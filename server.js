@@ -16,7 +16,9 @@ app.use(cors());
 // }));
 
 // Enable CORS for the /public route
-// app.use('/public', cors());
+app.use('/public', cors());
+app.use('/setting', cors());
+app.use('/sis', cors());
 
 // const localDiskPath = path.parse(require('os').homedir()).root;
 const localDiskPath = path.parse(os.homedir()).root;
@@ -26,24 +28,24 @@ const directory = path.join(
   'esa-applicants-data',
   'onlineUsers',
 );
-// console.log(directory)
+
 const directory1 = path.join(
     localDiskPath,
     'esa-applicants-data',
     'esaonlineapp',
   );
-//   console.log(directory1)
-// console.log(path.join(__dirname, localDiskPath,
-//     'esa-applicants-data',
-//     'onlineUsers',))
+
+  const directorySIS = path.join(
+    localDiskPath,
+    'sis-application-data',
+  );
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/public", express.static(directory));
 
 app.use("/setting", express.static(directory1));
-// app.use("/public", express.static(path.join(__dirname, "../esa-applicants-data/onlineUsers")));
 
-// app.use("/setting", express.static(path.join(__dirname, "../esa-applicants-data/esaonlineapp")));
+app.use("/sis", express.static(directorySIS));
 
 app.get('/', (req, res) =>{
     res.send('Server is ready...');
